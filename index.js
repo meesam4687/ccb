@@ -4,6 +4,8 @@ const { QuickDB } = require("quick.db");
 const db = new QuickDB();
 require("dotenv").config()
 
+
+
 client.on('ready', async () => {
   console.log("logged in");
 })
@@ -38,3 +40,9 @@ client.on('messageCreate', async (message) => {
 });
 
 client.login(process.env.TOKEN);
+
+const express = require("express")()
+express.all('/', function (req, res) {
+  res.send("Server Running")
+})
+express.listen(process.env.PORT, console.log("Server Started"))
