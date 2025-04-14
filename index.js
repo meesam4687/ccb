@@ -25,7 +25,7 @@ client.on('messageCreate', async (message) => {
     await db.set(`messageCount_${message.author.id}`, currentCount+1);
     let cCountNew = await db.get(`messageCount_${message.author.id}`);
     let timeout = await db.get(`timeout_${message.author.id}`) || 0;
-    if (cCountNew >= 5 && (Date.now() - timeout) < 0.5 * 60 * 1000) {
+    if (cCountNew >= 5 && (Date.now() - timeout) < 10 * 60 * 1000) {
         message.reply(`I said padhle, go and study`);
         await db.set(`messageCount_${message.author.id}`, 0);
         await db.set(`timeout_${message.author.id}`, Date.now());
