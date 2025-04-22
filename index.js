@@ -26,7 +26,7 @@ let exceptions = [
 
 let exceptionsChannel = [
   '1314261165165248542'
-  ]
+]
 
 client.on('messageCreate', async (message) => {
   if (message.author.id === client.user.id) return;
