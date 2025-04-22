@@ -24,9 +24,14 @@ let exceptions = [
   '809702164724449290'
 ]
 
+let exceptionsChannel = [
+  '1314261165165248542'
+  ]
+
 client.on('messageCreate', async (message) => {
   if (message.author.id === client.user.id) return;
   if (exceptions.includes(`${message.author.id}`)) return;
+  if (exceptionsChannel.includes(`${message.channel.id}`)) return;
   (async () => {
     if(db.get(`messageCount_${message.author.id}`) === null) {
         await db.set(`messageCount_${message.author.id}`, 0);
