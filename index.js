@@ -5,7 +5,7 @@ const db = new QuickDB();
 require("dotenv").config()
 
 
-
+//test
 client.on('ready', async () => {
   console.log("logged in");
 })
